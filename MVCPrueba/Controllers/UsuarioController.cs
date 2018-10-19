@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Data;
 using Utilitario.MUsuario;
-using System.Data.Entity;
-using System.Collections.Generic;
 using Data;
 
 namespace MVCPrueba.Controllers

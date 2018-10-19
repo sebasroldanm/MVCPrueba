@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Utilitario.MRegistro.Materia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreMateria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sesionm1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UltimaModificacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreMateria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sesionm1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UltimaModificacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdMateria }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdMateria }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdMateria })
+        </td>
+    </tr>
+}
+
+</table>

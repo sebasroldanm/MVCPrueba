@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Utilitario.MIdioma.Idioma>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Nuevo Idioma", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terminacion1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terminacion1)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdIdioma1 }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdIdioma1 }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdIdioma1 })
+        </td>
+    </tr>
+}
+
+</table>

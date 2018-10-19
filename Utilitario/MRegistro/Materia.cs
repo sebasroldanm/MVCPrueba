@@ -18,6 +18,7 @@ namespace Utilitario.MRegistro
         public int IdMateria { get => idMateria; set => idMateria = value; }
 
         [Required]
+        [Display(Name = "Nombre Materia")]
         [Column("nombre_materia")]
         public string NombreMateria { get => nombreMateria; set => nombreMateria = value; }
 

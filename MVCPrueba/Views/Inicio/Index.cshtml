@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Utilitario.MInicio.Inicio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Nuevo Contenido", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InicioCont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MisionInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisionInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sesion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UltimaModificacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InicioCont)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MisionInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisionInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sesion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UltimaModificacion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdInicio }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdInicio }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdInicio })
+        </td>
+    </tr>
+}
+
+</table>
