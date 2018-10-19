@@ -1,0 +1,176 @@
+﻿@model IEnumerable<Utilitario.MUsuario.Usuario>
+
+@{
+    ViewBag.Title = "Lista Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @{
+                <span>Nombre</span> <!--Html.DisplayNameFor(model => model.nombre_usua)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Usuario</span> <!--Html.DisplayNameFor(model => model.user_name)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Rol</span> <!--Html.DisplayNameFor(model => model.rol_id)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Clave</span> <!--Html.DisplayNameFor(model => model.clave)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Correo</span> <!--Html.DisplayNameFor(model => model.correo)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Estado</span> <!--Html.DisplayNameFor(model => model.estado)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Apellido</span> <!--Html.DisplayNameFor(model => model.apellido_usua)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Dirección</span> <!--Html.DisplayNameFor(model => model.direccion)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Teléfono</span> <!--Html.DisplayNameFor(model => model.telefono)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Documento</span> <!--Html.DisplayNameFor(model => model.num_documento)-->
+            }
+        </th>
+        <th>
+            @{
+                <!--<span>Foto</span> <!--Html.DisplayNameFor(model => model.foto_usua)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Fecha Nacimiento</span> <!--Html.DisplayNameFor(model => model.fecha_nac)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Departamento</span> <!--Html.DisplayNameFor(model => model.dep_nacimiento)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Ciudad</span> <!--Html.DisplayNameFor(model => model.ciu_nacimiento)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Sesión</span> <!--Html.DisplayNameFor(model => model.sesion)-->
+            }
+        </th>
+        <th>
+            @{
+                <span>Estado</span> <!--Html.DisplayNameFor(model => model.state_t)-->
+            }
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_usua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_name)
+        </td>
+        <td>
+            @{
+                if (item.rol_id == "1")
+                {
+                    <span>Administrador</span>
+                }
+                if (item.rol_id == "2")
+                {
+                    <span>Profesor</span>
+                }
+                if (item.rol_id == "3")
+                {
+                    <span>Estudiante</span>
+                }
+                if(item.rol_id == "4")
+                {
+                    <span>Acudiente</span>
+                }
+            }
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido_usua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_documento)
+        </td>
+        <td>
+            @{
+                <!--Html.DisplayFor(modelItem => item.foto_usua)-->
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_nac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dep_nacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciu_nacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sesion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state_t)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.id_usua }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_usua }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_usua })
+        </td>
+    </tr>
+}
+
+</table>
