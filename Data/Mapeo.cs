@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Utilitario.MUsuario;
+using Utilitario.MRegistro;
+using Utilitario.MIdioma;
+using Utilitario.MInicio;
 
 namespace Data
 {
@@ -23,5 +21,8 @@ namespace Data
         }
 
         public DbSet<Usuario> usuario { get; set; }
+        public DbSet<Idioma> idioma { get; set; }
+        public DbSet<Inicio> inicio { get; set; }
+        public DbSet<Materia> materia { get; set; }
     }
 }

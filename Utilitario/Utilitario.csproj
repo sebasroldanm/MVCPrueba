@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MIdioma\Idioma.cs" />
+    <Compile Include="MInicio\Inicio.cs" />
+    <Compile Include="MRegistro\Materia.cs" />
     <Compile Include="MUsuario\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UUser.cs" />
