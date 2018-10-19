@@ -1,0 +1,164 @@
+﻿@model Utilitario.MUsuario.Usuario
+
+@{
+    ViewBag.Title = "DetalleUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetalleUsuario</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombres: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_usua)
+        </dd>
+
+        <dt>
+            Usuario: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_name)
+        </dd>
+
+        <dt>
+            Rol:
+        </dt>
+
+        <dd>
+            @{
+                if (Model.rol_id == "1")
+                {
+                    <span>Administrador</span>
+                }
+                if (Model.rol_id == "2")
+                {
+                    <span>Profesor</span>
+                }
+                if (Model.rol_id == "3")
+                {
+                    <span>Estudiante</span>
+                }
+                if (Model.rol_id == "4")
+                {
+                    <span>Acudiente</span>
+                }
+            }
+        </dd>
+
+        <dt>
+            Clave: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clave)
+        </dd>
+
+        <dt>
+            Correo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            Estado: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            Apellidos: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido_usua)
+        </dd>
+
+        <dt>
+            Dirección: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            Teléfono: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            Número de Documento: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_documento)
+        </dd>
+
+        <dt>
+            Foto: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto_usua)
+        </dd>
+
+        <dt>
+            Fecha de Nacimiento: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nac)
+        </dd>
+
+        <dt>
+            Departamento::
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dep_nacimiento)
+        </dd>
+
+        <dt>
+            Ciudad: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciu_nacimiento)
+        </dd>
+
+        <dt>
+            Identificación de Sesion: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sesion)
+        </dd>
+
+        <dt>
+            Estado Contraseña: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state_t)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.id_usua }) |
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</p>

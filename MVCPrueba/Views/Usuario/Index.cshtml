@@ -167,10 +167,22 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.id_usua }) |
-            @Html.ActionLink("Detalle", "Details", new { id=item.id_usua }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_usua })
+            @Html.ActionLink("Detalles", "DetalleUsuario", new { id=item.id_usua }) |
+            @Html.ActionLink("Eliminar", "EliminarUsuario", new { id=item.id_usua }, new { @class = "aElimina"})
         </td>
     </tr>
 }
 
 </table>
+
+
+@section scripts{
+    <script>
+        $(".aElimina").click(function (event) {
+            if (!confirm('Esta seguro en eliminar este usuario?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+    }
+

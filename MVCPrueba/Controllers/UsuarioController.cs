@@ -126,8 +126,41 @@ namespace MVCPrueba.Controllers
             }
         }
 
+        public ActionResult DetalleUsuario(int id)
+        {
+            try
+            {
+                using (var db = new Mapeo("public"))
+                {
+                    Usuario result = db.usuario.Find(id);
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al traer Usuario");
+                return View();
+            }
+        }
 
-
+        public ActionResult EliminarUsuario(int id)
+        {
+            try
+            {
+                using (var db = new Mapeo("public"))
+                {
+                    Usuario result = db.usuario.Find(id);
+                    db.usuario.Remove(result);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al traer Usuario");
+                return View();
+            }
+        }
 
 
 
