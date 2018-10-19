@@ -54,7 +54,8 @@ namespace MVCPrueba.Controllers
                 }
                 catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "Error al registrar Usuario" + ex.Message);
+                    //ModelState.AddModelError("", "Error al registrar Usuario" + ex.Message);
+                    ModelState.AddModelError("", "Error al registrar Usuario");
                     return View();
                 }
                 
@@ -63,19 +64,66 @@ namespace MVCPrueba.Controllers
 
         public ActionResult Editar(int id)
         {
-            using (var db = new Mapeo("public"))
+            try
             {
-                //Usuario result = db.usuario.Where(x => x.id_usua == id).FirstOrDefault();
-                Usuario result = db.usuario.Find(id);             //Solo cuando es unico, No compuesta la llave primaria
-                return View(result);
+                using (var db = new Mapeo("public"))
+                {
+                    //Usuario result = db.usuario.Where(x => x.id_usua == id).FirstOrDefault();
+                    Usuario result = db.usuario.Find(id);             //Solo cuando es unico, No compuesta la llave primaria
+                    return View(result);
+                }
             }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al traer Usuario");
+                return View();
+            }
+            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar(Usuario enc)
         {
-            return View();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                    //ModelState.AddModelError("","Ha ocurrido un problema, seleccione todo");
+                }
+                else
+                {
+                    using (var db = new Mapeo("public"))
+                    {
+                        Usuario edit = db.usuario.Find(enc.id_usua);
+                        edit.apellido_usua = enc.apellido_usua;
+                        edit.ciu_nacimiento = enc.ciu_nacimiento;
+                        edit.clave = enc.clave;
+                        edit.correo = enc.correo;
+                        edit.dep_nacimiento = enc.dep_nacimiento;
+                        edit.direccion = enc.direccion;
+                        edit.estado = enc.estado;
+                        edit.fecha_nac = enc.fecha_nac;
+                        edit.foto_usua = "skjdshfbsdhfbsdhbfsd.jpeg";
+                        edit.nombre_usua = enc.nombre_usua;
+                        edit.num_documento = enc.num_documento;
+                        edit.rol_id = enc.rol_id;
+                        edit.sesion = Session.SessionID;
+                        edit.state_t = "1";
+                        edit.telefono = enc.telefono;
+                        edit.user_name = enc.user_name;
+
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al editar Usuario");
+                return View();
+            }
         }
 
 
