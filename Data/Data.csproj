@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DUser.cs" />
     <Compile Include="Mapeo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
